@@ -1,0 +1,6 @@
+{
+  "name": "tsu-exam-finder",
+  "dependencies": {
+    "uikit": "~2.23.0"
+  }
+}

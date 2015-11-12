@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Cache\Repository as Cache;
 use Carbon\Carbon;
+use Exception;
 use Gufy\PdfToHtml\Pdf as PdfToHtml;
 use Illuminate\Http\Request;
 use Smalot\PdfParser\Parser as PdfParser;
@@ -17,48 +19,52 @@ class ParseController extends Controller
     private $filePath = 'https://www.tsu.ge/data/file_db/sagamocdo/%s.pdf';
 
     /**
-     * PdfParser object
-     * @var \Smalot\PdfParser\Parser
+     * Get results of received query
+     * @param  Request $request
+     * @return array Result of query
      */
-    private $parser;
-
-    public function details(Request $request)
+    public function details(Request $request, Cache $cache)
     {
-        // Generate filename
-        $filename = $this->buildUrlByDateAndTime($request->input('date'), $request->input('time'));
+        $firstName = $request->input('name'); // First name
+        $lastName  = $request->input('last'); // Last name
+        $date      = $request->input('date'); // Date of exam
+        $time      = $request->input('time'); // Time of exam
+        $filename  = $this->buildUrlByDateAndTime($date, $time); // Get filename (url)
+        $cacheKey  = preg_replace('/\D/', '', $filename); // Generate key for cache entry
 
-        echo $cacheKey = preg_replace('/\D/', '', $filename); exit;
+        $data = $cache->remember($cacheKey, 0.00001, function() use ($filename) {
 
-        $this->parser = new PdfParser();
+            $data = $matches = []; // Initial empty data array
+            $parser = new PdfParser(); // Parser object
 
-        $text = $this->parser->parseFile($filename)->getText();
-        
-        $data = [];
-        preg_match_all('/^([ა-ჰ]+)@+([ა-ჰ]+)@+([\d]{1,2})@+([\d]{1,2})@+(.+)$/im', $text, $data);
+            try {
+                $text = $parser->parseFile($filename)->getText(); // Get text
+            } catch (Exception $e) {
+                abort(500, 'PDF Parser failed'); // Huston. nothing. I'm fine.
+                exit;
+            }
+            
+            preg_match_all('/^([ა-ჰ]+)@+([ა-ჰ]+)@+([\d]{1,2})@+([\d]{1,2})@+(.+)$/im', $text, $matches);
 
-        $search = $request->input('q');
+            for ($i = 0; $i < count($matches[0]); $i++) {
+                $data[] = [
+                    'last_name'  => $matches[1][$i],
+                    'first_name' => $matches[2][$i],
+                    'sector'     => $matches[3][$i],
+                    'seat'       => $matches[4][$i],
+                    'subject'    => $matches[5][$i],
+                ];
+            }
 
-        $results = [];
+            return $data;
+        });
 
-        for ($i = 0; $i < count($data[0]); $i++) {
-
-            // if ($data[1][$i] == $search) {
-            //     $temp = ['subject' => $data[3][$i]];
-
-            //     if (strlen($data[2][$i]) == 2) {
-            //         $temp['sector'] = substr($data[2][$i], 0, 1);
-            //         $temp['seat']   = substr($data[2][$i], -1);
-            //     } else if (strlen($data[2][$i]) == 4) {
-            //         $temp['sector'] = substr($data[2][$i], 0, 2);
-            //         $temp['seat']   = substr($data[2][$i], -2);
-            //     } else {
-            //         // wtf
-            //     }
-
-            //     $results[] = $temp;
-                
-            // }
-        }
+        $results = array_reduce($data, function($carry, $item) use ($firstName, $lastName) {
+            if ($item['last_name'] == $lastName && $item['first_name'] == $firstName) {
+                $carry[] = $item;
+            }
+            return $carry;
+        }, []);
 
         dd($results);
     }
@@ -78,7 +84,7 @@ class ParseController extends Controller
             $urls = [];
             // TODO: Implement this if needed.
         } else {
-            return sprintf($this->filePath, $carbonDate->format('d.m.y_H.i'));
+            return sprintf($this->filePath, $carbonDate->format('d.m.Y_G.i'));
         }
     }
 }

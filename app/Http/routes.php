@@ -1,14 +1,8 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
+ * Back-end routes
+ */
+$app->get('details', 'ParseController@details');
 
-$app->get('dump', 'ParseController@dump');
+$app->get('/',    'FrontController@get');

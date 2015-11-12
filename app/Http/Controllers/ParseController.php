@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Smalot\PdfParser\Parser as PdfParser;
+use Illuminate\Http\Request;
 
 class ParseController extends Controller
 {
@@ -13,13 +14,41 @@ class ParseController extends Controller
 	 */
 	private $parser;
 
-    public function dump()
+    public function dump(Request $request)
     {
     	$this->parser = new PdfParser();
 		$pdf = $this->parser->parseFile('https://www.tsu.ge/data/file_db/sagamocdo/12.11.15_13.00.pdf');
 		 
 		$text = $pdf->getText();
 		
-		echo preg_replace('/^([ა-ჰ]+)([\d]{2,4})(.+)$/im', '>>>>$1>>>>$2>>>>$3<<<<', $text);
+		$data = [];
+		preg_match_all('/^([ა-ჰ]+)([\d]{2,4})(.+)$/im', $text, $data);
+
+		$search = $request->input('q');
+
+		$results = [];
+
+		for ($i=0; $i < count($data[0]); $i++) { 
+
+			if ($data[1][$i] == $search) {
+				$temp = ['subject' => $data[3][$i]];
+
+				if (strlen($data[2][$i]) == 2) {
+					$temp['sector'] = substr($data[2][$i], 0, 1);
+					$temp['seat']   = substr($data[2][$i], -1);
+				} else if (strlen($data[2][$i]) == 4) {
+					$temp['sector'] = substr($data[2][$i], 0, 2);
+					$temp['seat']   = substr($data[2][$i], -2);
+				} else {
+					// wtf
+				}
+
+				$results[] = $temp;
+				
+			}
+		}
+
+
+		dd($results);
     }
 }

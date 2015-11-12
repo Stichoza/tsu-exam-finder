@@ -48,11 +48,11 @@ class ParseController extends Controller
 
             for ($i = 0; $i < count($matches[0]); $i++) {
                 $data[] = [
-                    'last_name'  => $matches[1][$i],
-                    'first_name' => $matches[2][$i],
-                    'sector'     => $matches[3][$i],
-                    'seat'       => $matches[4][$i],
-                    'subject'    => $matches[5][$i],
+                    'last_name'  => str_replace('@', '', $matches[1][$i]),
+                    'first_name' => str_replace('@', '', $matches[2][$i]),
+                    'sector'     => (int) $matches[3][$i],
+                    'seat'       => (int) $matches[4][$i],
+                    'subject'    => str_replace('@', '', $matches[5][$i]),
                 ];
             }
 

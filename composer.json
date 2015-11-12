@@ -4,13 +4,20 @@
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/stichoza-forks/pdfparser"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/lumen-framework": "5.1.*",
         "vlucas/phpdotenv": "~1.0",
         "predis/predis": "~1.0",
         "illuminate/redis": "~5.1",
-        "smalot/pdfparser": "^0.9.25"
+        "gufy/pdftohtml-php": "~2",
+        "smalot/pdfparser": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",

@@ -1,6 +1,7 @@
 {
   "name": "tsu-exam-finder",
   "dependencies": {
-    "uikit": "~2.23.0"
+    "alk-life": "~1.0.0",
+    "bootstrap": "~3.3.5"
   }
 }

@@ -5,4 +5,7 @@
  */
 $app->get('details', 'ParseController@details');
 
-$app->get('/',    'FrontController@get');
+/*
+ * Front-end routes
+ */
+$app->get('/', 'FrontController@index');

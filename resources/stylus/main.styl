@@ -17,7 +17,7 @@ body
     box-shadow 0 0 64px rgba(black, .15)
 
 .svg-shelf-r, .svg-shelf-l
-    transition all .25s ease-in-out
+    @extend .animated
     position fixed
     z-index 150
     width 140px
@@ -59,33 +59,35 @@ body
     display inline
     content ','
 
+.date-inputs
+    margin-top 15px
+
 .ui-clickable
     cursor pointer
     border-bottom 2px dotted transparent
-
-.ui-clickable:hover
-    border-bottom-color black
+    &:hover
+        border-bottom-color black
 
 .sticky-copyright
+    @extend .animated
     position absolute
     bottom 0
     width 100%
     padding 5px 0
     margin 0
     background-color rgba(black, 0.1)
-
-.sticky-copyright:hover
-    z-index 350
-    background-color rgba(black, .3)
-
-.sticky-copyright *
-    margin 0
-
-.sticky-copyright, .sticky-copyright a
-    color #fff
-
-.sticky-copyright a
-    text-decoration underline
+    font-size 10px
+    .author-heart
+        color #e74c3c
+    &:hover
+        z-index 350
+        background-color rgba(black, .3)
+    &, & a
+        color #fff
+    a
+        text-decoration underline
+    *
+        margin 0
 
 .sweet-inputs input
     background none
@@ -99,9 +101,6 @@ body
     &:focus
         box-shadow none
         border-bottom 2px solid text-color
-
-.date-inputs
-    margin-top 15px
 
 ////////////////////////////////////////////////////////////////////
 

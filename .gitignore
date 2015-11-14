@@ -1,4 +1,7 @@
-/vendor
-/public/lib
 .env
 .idea
+/node_modules
+/public/css/dist
+/public/js/dist
+/public/lib
+/vendor

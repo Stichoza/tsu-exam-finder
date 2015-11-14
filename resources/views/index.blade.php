@@ -35,10 +35,10 @@
 			</div>
 			<div class="row sweet-inputs">
 				<div class="col-lg-2 col-md-3 col-lg-offset-3 col-md-offset-2">
-					<input type="text" id="input-name" name="name" class="form-control input-lg floatlabel" placeholder="სახელი" required autofocus>
+					<input type="text" id="input-name" name="name" class="form-control input-lg floatlabel" placeholder="სახელი" autocapitalize="off" required autofocus>
 				</div>
 				<div class="col-lg-3 col-md-3 col-xs-9">
-					<input type="text" id="input-last" name="last" class="form-control input-lg floatlabel" placeholder="გვარი" required>
+					<input type="text" id="input-last" name="last" class="form-control input-lg floatlabel" placeholder="გვარი" autocapitalize="off" required>
 				</div>
 				<div class="col-lg-1 col-md-2 col-xs-3">
 					<input type="submit" class="btn-block" value="Go!">
@@ -71,9 +71,11 @@
 		</div>
 	</div>
 	<div class="timer-source hidden">
-		საათი: <a>8</a>, <a>9</a>, <a>10</a>, <a>11</a>, <a>12</a>, <a>13</a>, <a>14</a>, <a>15</a>, <a>16</a>, <a>17</a>, <a>18</a>, <a>19</a><!-- ამაზე გვიან თუ დაგინიშნეს გამოცდა, აღარ მიხვიდეთ საერთოდ -->
-		<br>
-		წუთი: <a>00</a>, <a>15</a>, <a>30</a>, <a>45</a>
+		<a href="#">+</a>
+		<a href="#">+</a>
+			<input type="text" pattern="[0-9]{1,2}:[0-9]{2}" maxlength="5">
+		<a href="#">-</a>
+		<a href="#">-</a>
 	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>

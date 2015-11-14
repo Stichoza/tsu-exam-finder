@@ -28,12 +28,6 @@ class FrontController extends Controller
 
         $dates[(int) ($carbon->hour > 20)]['active'] = true; // Make one date selected depending on current time.
 
-        $carbon->setTime(8, 30); // Set time 30 minutes before first time.
-
-        for ($i = 0; $i < 18; $i++) {
-            $hours[] = $carbon->addMinutes(30)->format('H:i');
-        }
-
         return view('index')->with('dates', $dates);
     }
 }

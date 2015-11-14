@@ -16,29 +16,34 @@
 		<img class="svg-stuff" src="{{ url('assets/main_vector.svg') }}" width="480" alt="">
 	</div>
 	<div class="page-content container">
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<h1 class="text-center">გამოცდის ადგილები (თსუ)</h1>
+		<form action="/details">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<h1 class="text-center header-title">გამოცდის ადგილები (თსუ)</h1>
+				</div>
 			</div>
-		</div>
-		<div class="row sweet-inputs">
-			<div class="col-sm-3 col-sm-offset-2">
-				<input type="text" class="form-control input-lg" placeholder="სახელი">
+			<div class="row sweet-inputs">
+				<div class="col-lg-2 col-md-3 col-lg-offset-3 col-md-offset-2">
+					<input type="text" class="form-control input-lg floatlabel" placeholder="სახელი" required autofocus>
+				</div>
+				<div class="col-lg-3 col-md-3 col-xs-9">
+					<input type="text" class="form-control input-lg floatlabel" placeholder="გვარი" required>
+				</div>
+				<div class="col-lg-1 col-md-2 col-xs-3">
+					<input type="submit" class="btn-block" value="Go!">
+				</div>
 			</div>
-			<div class="col-sm-5">
-				<input type="text" class="form-control input-lg" placeholder="გვარი">
+			<div class="row date-inputs">
+				<div class="col-sm-8 col-sm-offset-2 text-center">
+					<span class="date ui-clickable">
+						@foreach ($dates as $date)
+							<span class="{{ $date['active'] ? null : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
+						@endforeach
+					</span>
+					<span class="time ui-clickable">14:00</span>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<span class="date ui-clickable">
-					@foreach ($dates as $date)
-						<span class="{{ $date['active'] ? null : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
-					@endforeach
-				</span>
-				<span class="time ui-clickable">14:00</span>
-			</div>
-		</div>
+		</form>
 	</div>
 	<div class="sticky-copyright containter-fluid">
 		<div class="row">
@@ -61,14 +66,7 @@
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url('lib/sweetalert/dist/sweetalert.min.js') }}"></script>
-	<script>
-		$('.ui-clickable.time').click(function(event) {
-			swal({
-				title: 'მიუთითე დრო',
-				text: $('.timer-source').html(),
-				html: true
-			});
-		});
-	</script>
+	<script src="{{ url('lib/floatlabel.js/floatlabels.min.js') }}"></script>
+	<script src="{{ url('js/dist/main.min.js') }}"></script>
 </body>
 </html>

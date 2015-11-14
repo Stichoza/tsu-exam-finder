@@ -1,94 +1,118 @@
-body 
-    background-color #5ca0a0
+@require '_variables.styl'
+
+body
+    background-color background-color
     font-family 'ALK Life'
 
-.svg-desk 
+.svg-desk
     position fixed
     top 0
     left 0
     right 0
-    bottom 24%
+    bottom offset-bottom
     background-image url('../../assets/desk.svg')
     background-size cover
     z-index 200
-    box-shadow 0 0 64px rgba(0,0,0,0.15)
+    box-shadow 0 0 64px rgba(black, .15)
 
-.svg-shelf-r, .svg-shelf-l 
+.svg-shelf-r, .svg-shelf-l
+    transition all .25s ease-in-out
     position fixed
     z-index 150
+    width 140px
     left 50%
-    -webkit-transition all .25s ease-in-out
-       -moz-transition all .25s ease-in-out
-        -ms-transition all .25s ease-in-out
-         -o-transition all .25s ease-in-out
-            transition all .25s ease-in-out
+    &:hover
+        margin-bottom 0
 
-.svg-shelf-rhover, .svg-shelf-lhover 
-    margin-bottom 0
-
-.svg-shelf-r 
-    bottom calc(24% - 52px)
+.svg-shelf-r
+    bottom "calc(%s - 52px)" % offset-bottom
     margin-left 240px
     margin-bottom 20px
-    width 140px
 
-.svg-shelf-l 
-    bottom calc(24% - 84px)
+.svg-shelf-l
+    bottom "calc(%s - 84px)" % offset-bottom
     margin-left -350px
     margin-bottom 50px
-    width 140px
 
-.svg-stuff 
+.svg-stuff
     position fixed
-    bottom calc(24% - 150px)
+    bottom "calc(%s - 150px)" % offset-bottom
     width 580px
     left 50%
     margin-left -290px
     z-index 250
     pointer-events none
 
-.page-content 
+.page-content
     position relative
     z-index 300
 
-.date, .time 
-    font-size 28px
+.header-title
+    font-size 42px
+    padding 4px 0 8px
 
-.date > spanafter 
+.date, .time
+    font-size text-size
+
+.date > span::after
     display inline
     content ','
 
-.ui-clickable 
+.ui-clickable
     cursor pointer
-    border-bottom 2px dotted transparent 
+    border-bottom 2px dotted transparent
 
-.ui-clickablehover 
+.ui-clickable:hover
     border-bottom-color black
 
-.sticky-copyright 
+.sticky-copyright
     position absolute
     bottom 0
     width 100%
     padding 5px 0
     margin 0
-    background-color rgba(0,0,0,0.1)
+    background-color rgba(black, 0.1)
 
-.sticky-copyrighthover 
+.sticky-copyright:hover
     z-index 350
-    background-color rgba(0,0,0,0.3)
+    background-color rgba(black, .3)
 
-.sticky-copyright * 
+.sticky-copyright *
     margin 0
 
-.sticky-copyright, .sticky-copyright a 
+.sticky-copyright, .sticky-copyright a
     color #fff
 
-.sticky-copyright a 
+.sticky-copyright a
     text-decoration underline
 
-.sweet-inputs input 
+.sweet-inputs input
     background none
     box-shadow none
     border none
-    border-bottom 2px dotted black
+    border-bottom 2px dotted text-color
     border-radius 0
+    font-size text-size
+    padding 3px 5px 2px
+    color text-color
+    &:focus
+        box-shadow none
+        border-bottom 2px solid text-color
+
+.date-inputs
+    margin-top 15px
+
+////////////////////////////////////////////////////////////////////
+
+@media (max-width: 320px)
+    .header-title
+        font-size 24px
+        padding 0
+    
+    .sweet-inputs input, .date, .time
+        font-size text-size-sm
+    
+    .sweet-inputs input
+        padding 3px 2px
+        margin-top 3px
+        height text-size-sm + 14px

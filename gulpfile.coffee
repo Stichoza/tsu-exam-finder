@@ -11,7 +11,7 @@ uglify       = require 'gulp-uglify'
 
 # Stylus
 gulp.task 'stylus', ->
-    gulp.src 'resources/assets/stylus/**/*.styl'
+    gulp.src 'resources/stylus/**/*.styl'
     .pipe plumber
         errorHandler: notify.onError 'Error: <%= error.message %>'
     .pipe ignore.exclude '**/_*.styl'
@@ -25,7 +25,7 @@ gulp.task 'stylus', ->
 
 # Front-end scripts
 gulp.task 'coffee', ->
-    gulp.src 'resources/assets/coffee/**/*.coffee' # CoffeeScript Directory
+    gulp.src 'resources/coffee/**/*.coffee'
     .pipe plumber
         errorHandler: notify.onError 'Error: <%= error.message %>'
     .pipe coffee
@@ -38,10 +38,10 @@ gulp.task 'coffee', ->
 
 # Watch task
 gulp.task 'watch', ->
-    gulp.watch 'resources/assets/stylus/**/*', ['stylus']
-    gulp.watch 'resources/assets/coffee/**/*', ['stylus']
+    gulp.watch 'resources/stylus/**/*', ['stylus']
+    gulp.watch 'resources/coffee/**/*', ['coffee']
     return
 
 # Other tasks
-gulp.task 'build', ['stylus', 'stylus'], ->
+gulp.task 'build', ['stylus', 'coffee'], ->
 gulp.task 'default', ['watch', 'build'], ->

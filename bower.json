@@ -2,6 +2,7 @@
   "name": "tsu-exam-finder",
   "dependencies": {
     "alk-life": "~1.0.0",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "sweetalert": "~1.1.3"
   }
 }

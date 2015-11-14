@@ -5,6 +5,7 @@
 	<title>TSU Exam Finder</title>
 	<link rel="stylesheet" href="{{ url('lib/bootstrap/dist/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ url('lib/alk-life/css/alk-life.min.css') }}">
+	<link rel="stylesheet" href="{{ url('lib/sweetalert/dist/sweetalert.css') }}">
 	<style>
 		body {
 			background-color: #5ca0a0;
@@ -67,6 +68,10 @@
 			margin: 0;
 			background-color: rgba(0,0,0,0.1);
 		}
+		.sticky-copyright:hover {
+			z-index: 350;
+			background-color: rgba(0,0,0,0.3);
+		}
 		.sticky-copyright * {
 			margin: 0;
 		}
@@ -99,6 +104,16 @@
 				<input type="text" class="form-control input-lg" placeholder="გვარი">
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-2">
+				<select id="">
+					
+				</select>
+			</div>
+			<div class="col-sm-5">
+				<input type="text" class="form-control input-lg" placeholder="დრო">
+			</div>
+		</div>
 	</div>
 	<div class="sticky-copyright containter-fluid">
 		<div class="row">
@@ -115,5 +130,6 @@
 	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url('lib/sweetalert/dist/sweetalert.min.js') }}"></script>
 </body>
 </html>

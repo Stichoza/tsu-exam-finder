@@ -21,3 +21,5 @@ $ '.ui-clickable.time'
             title: 'მიუთითე დრო'
             text: $('.timer-source').html()
             html: yes
+
+GeoKBD.mapFields(document.querySelectorAll('#input-name, #input-last'), 'KA')

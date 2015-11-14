@@ -4,6 +4,7 @@
     "alk-life": "~1.0.0",
     "bootstrap": "~3.3.5",
     "sweetalert": "~1.1.3",
-    "floatlabel.js": "*"
+    "floatlabel.js": "*",
+    "geokbd": "ioseb/geokbd"
   }
 }

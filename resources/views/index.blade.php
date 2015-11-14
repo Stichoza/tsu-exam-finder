@@ -9,14 +9,14 @@
 	<link rel="stylesheet" href="{{ url('css/dist/main.min.css') }}">
 </head>
 <body>
-	<div class="svg-assets">
+	<div class="svg-assets noselect">
 		<div class="svg-desk"></div>
 		<img class="svg-shelf-r" src="{{ url('assets/shelf_right.svg') }}" alt="">
 		<img class="svg-shelf-l" src="{{ url('assets/shelf_left.svg') }}" alt="">
 		<img class="svg-stuff" src="{{ url('assets/main_vector.svg') }}" width="480" alt="">
 	</div>
 	<div class="page-content container">
-		<form action="/details">
+		<form action="details">
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">
 					<h1 class="text-center header-title">გამოცდის ადგილები (თსუ)</h1>
@@ -35,12 +35,12 @@
 			</div>
 			<div class="row date-inputs">
 				<div class="col-sm-8 col-sm-offset-2 text-center">
-					<span class="date ui-clickable">
+					<span class="date ui-clickable noselect">
 						@foreach ($dates as $date)
 							<span class="{{ $date['active'] ? null : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
 						@endforeach
 					</span>
-					<span class="time ui-clickable">14:00</span>
+					<span class="time ui-clickable noselect">14:00</span>
 				</div>
 			</div>
 		</form>

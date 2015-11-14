@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<title>TSU Exam Finder - გამოცდის ადგილები</title>
 	<meta name="description" content="წინასწარ გაიგე რომელ სექტორში რა ადგილას წერ გამოცდას.">
@@ -63,6 +63,7 @@
 			</div>
 			<div class="hidden-xs text-left col-sm-6">
 				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>
+				&middot; Fork it on <a href="https://github.com/Stichoza/tsu-exam-finder">GitHub</a>
 			</div>
 			<div class="hidden-xs text-right col-sm-6">
 				School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>

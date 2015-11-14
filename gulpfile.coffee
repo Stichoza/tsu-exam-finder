@@ -1,3 +1,4 @@
+autoprefixer = require 'gulp-autoprefixer'
 coffee       = require 'gulp-coffee'
 gulp         = require 'gulp'
 gutil        = require 'gulp-util'
@@ -19,6 +20,8 @@ gulp.task 'stylus', ->
         .pipe ignore.exclude '**/_*.styl'
         .on 'error', gutil.log
         .pipe stylus()
+        .pipe autoprefixer
+            browsers: ['last 6 versions']
         .pipe rename
             suffix: '.min'
         .pipe minifycss

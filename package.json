@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "bower": "latest",
-    "coffee-script": "latest"
+    "coffee-script": "latest",
+    "gulp-autoprefixer": "^3.1.0"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
@@ -19,5 +20,5 @@
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.4"
-  }  
+  }
 }

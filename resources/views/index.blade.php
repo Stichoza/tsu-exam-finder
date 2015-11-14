@@ -60,6 +60,20 @@
 			position: relative;
 			z-index: 300;
 		}
+		.date, .time {
+			font-size: 28px;
+		}
+		.date > span::after {
+			display: inline;
+			content: ',';
+		}
+		.ui-clickable {
+			cursor: pointer;
+			border-bottom: 2px dotted transparent; 
+		}
+		.ui-clickable:hover {
+			border-bottom-color: black;
+		}
 		.sticky-copyright {
 			position: absolute;
 			bottom: 0;
@@ -93,7 +107,7 @@
 	<div class="page-content container">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-				<h1 class="text-center">თსუ - გამოცდის ადგილები</h1>
+				<h1 class="text-center">გამოცდის ადგილები (თსუ)</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -105,13 +119,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3 col-sm-offset-2">
-				<select id="">
-					
-				</select>
-			</div>
-			<div class="col-sm-5">
-				<input type="text" class="form-control input-lg" placeholder="დრო">
+			<div class="col-sm-8 col-sm-offset-2">
+				<span class="date ui-clickable">
+					@foreach ($dates as $date)
+						<span class="{{ $date['active'] ? null : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
+					@endforeach
+				</span>
+				<span class="time ui-clickable">14:00</span>
 			</div>
 		</div>
 	</div>
@@ -128,8 +142,22 @@
 			</div>
 		</div>
 	</div>
+	<div class="timer-source hidden">
+		საათი: <a>8</a>, <a>9</a>, <a>10</a>, <a>11</a>, <a>12</a>, <a>13</a>, <a>14</a>, <a>15</a>, <a>16</a>, <a>17</a>, <a>18</a>, <a>19</a><!-- ამაზე გვიან თუ დაგინიშნეს გამოცდა, აღარ მიხვიდეთ საერთოდ -->
+		<br>
+		წუთი: <a>00</a>, <a>15</a>, <a>30</a>, <a>45</a>
+	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url('lib/sweetalert/dist/sweetalert.min.js') }}"></script>
+	<script>
+		$('.ui-clickable.time').click(function(event) {
+			swal({
+				title: 'მიუთითე დრო',
+				text: $('.timer-source').html(),
+				html: true
+			});
+		});
+	</script>
 </body>
 </html>

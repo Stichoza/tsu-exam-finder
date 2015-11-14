@@ -35,10 +35,10 @@
 			</div>
 			<div class="row sweet-inputs">
 				<div class="col-lg-2 col-md-3 col-lg-offset-3 col-md-offset-2">
-					<input type="text" id="input-name" name="name" class="form-control input-lg floatlabel" placeholder="სახელი" autocapitalize="off" required autofocus>
+					<input type="text" id="input-name" name="name" class="form-control input-lg floatlabel" placeholder="სახელი" autocapitalize="none" required autofocus>
 				</div>
 				<div class="col-lg-3 col-md-3 col-xs-9">
-					<input type="text" id="input-last" name="last" class="form-control input-lg floatlabel" placeholder="გვარი" autocapitalize="off" required>
+					<input type="text" id="input-last" name="last" class="form-control input-lg floatlabel" placeholder="გვარი" autocapitalize="none" required>
 				</div>
 				<div class="col-lg-1 col-md-2 col-xs-3">
 					<input type="submit" class="btn-block" value="Go!">
@@ -59,14 +59,14 @@
 	<div class="sticky-copyright containter-fluid">
 		<div class="row">
 			<div class="text-center visible-xs col-xs-12">
-				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>, School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
+				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>, vectors by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
 			</div>
 			<div class="hidden-xs text-left col-sm-6">
-				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>
-				&middot; Fork it on <a href="https://github.com/Stichoza/tsu-exam-finder">GitHub</a>
+				School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
 			</div>
 			<div class="hidden-xs text-right col-sm-6">
-				School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
+				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>
+				&middot; Fork it on <a href="https://github.com/Stichoza/tsu-exam-finder">GitHub</a>
 			</div>
 		</div>
 	</div>

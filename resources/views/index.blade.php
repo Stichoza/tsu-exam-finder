@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>TSU Exam Finder</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>TSU Exam Finder - გამოცდის ადგილები</title>
+	<meta name="description" content="წინასწარ გაიგე რომელ სექტორში რა ადგილას წერ გამოცდას.">
+	<meta name="keywords" content="tsu,exams,თსუ,გამოცდები,განრიგი,ცხრილი,სექტორი,ადგილი,შუალედური,კოლოქვიუმი">
+	<meta name="author" content="Levan Velijanashvili">
+
+	<meta property="og:title" content="გამოცდის ადგილები (თსუ)">
+	<meta property="og:image" content="link_to_image">
+	<meta property="og:description" content="description goes here">
+
 	<link rel="stylesheet" href="{{ url('lib/bootstrap/dist/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ url('lib/alk-life/css/alk-life.min.css') }}">
 	<link rel="stylesheet" href="{{ url('lib/sweetalert/dist/sweetalert.css') }}">
@@ -48,10 +59,10 @@
 	<div class="sticky-copyright containter-fluid">
 		<div class="row">
 			<div class="text-center visible-xs col-xs-12">
-				Created with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>, School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
+				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>, School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
 			</div>
 			<div class="hidden-xs text-left col-sm-6">
-				Created with &hearts; by <a href="https://stichoza.com">Stichoza</a>
+				Made with <span class="author-heart">&hearts;</span> by <a href="https://stichoza.com">Stichoza</a>
 			</div>
 			<div class="hidden-xs text-right col-sm-6">
 				School vector designed by <a href="http://www.freepik.com/free-photos-vectors/school">Freepik</a>
@@ -67,6 +78,7 @@
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url('lib/sweetalert/dist/sweetalert.min.js') }}"></script>
 	<script src="{{ url('lib/floatlabel.js/floatlabels.min.js') }}"></script>
+	<script src="{{ url('lib/geokbd/geokbd.js') }}"></script>
 	<script src="{{ url('js/dist/main.min.js') }}"></script>
 </body>
 </html>

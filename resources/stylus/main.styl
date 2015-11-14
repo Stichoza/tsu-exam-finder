@@ -1,48 +1,11 @@
 @require '_variables.styl'
 @require '_utils.styl'
+@require '_spinner.styl'
+@require '_svg.styl'
 
 body
     background-color background-color
     font-family 'ALK Life'
-
-.svg-desk
-    position fixed
-    top 0
-    left 0
-    right 0
-    bottom offset-bottom
-    background-image url('../../assets/desk.svg')
-    background-size cover
-    z-index 200
-    box-shadow 0 0 64px rgba(black, .15)
-
-.svg-shelf-r, .svg-shelf-l
-    @extend .animated
-    position fixed
-    z-index 150
-    width 140px
-    left 50%
-    &:hover
-        margin-bottom 0
-
-.svg-shelf-r
-    bottom "calc(%s - 52px)" % offset-bottom
-    margin-left 240px
-    margin-bottom 20px
-
-.svg-shelf-l
-    bottom "calc(%s - 84px)" % offset-bottom
-    margin-left -350px
-    margin-bottom 50px
-
-.svg-stuff
-    position fixed
-    bottom "calc(%s - 150px)" % offset-bottom
-    width 580px
-    left 50%
-    margin-left -290px
-    z-index 250
-    pointer-events none
 
 .page-content
     position relative
@@ -78,7 +41,7 @@ body
     background-color rgba(black, 0.1)
     font-size 10px
     .author-heart
-        color #e74c3c
+        color #e79f9d
     &:hover
         z-index 350
         background-color rgba(black, .3)
@@ -116,3 +79,10 @@ body
         padding 3px 2px
         margin-top 3px
         height text-size-sm + 14px
+
+
+////////////////////////////////////////////////////////////////////
+
+@media (max-width: 640px)
+    .header-title
+        font-size 24px

@@ -15,7 +15,7 @@ class FrontController extends Controller
     public function index()
     {
         $dates = [];
-        $hours = [];
+        $time = '09:00';
         $carbon = new Carbon('yesterday'); // Because we add a day
 
         for ($i = 0; $i < 2; $i++) {
@@ -28,6 +28,14 @@ class FrontController extends Controller
 
         $dates[(int) ($carbon->hour > 20)]['active'] = true; // Make one date selected depending on current time.
 
-        return view('index')->with('dates', $dates);
+        $carbon = Carbon::now();
+
+        if ($carbon->hour >= 9 && $carbon->hour < 20) {
+            $time = ($carbon->minute < 30) ? $carbon->format('H') . ':30' : $carbon->addHour()->format('H') . ':00';
+        }
+
+        return view('index')
+            ->with('dates', $dates)
+            ->with('time', $time);
     }
 }

@@ -22,4 +22,5 @@ $ '.ui-clickable.time'
             text: $('.timer-source').html()
             html: yes
 
-GeoKBD.mapFields(document.querySelectorAll('#input-name, #input-last'), 'KA')
+# GeoKBD
+GeoKBD.mapFields document.querySelectorAll('#input-name, #input-last'), 'KA'

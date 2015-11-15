@@ -49,9 +49,13 @@
 					<span class="date ui-clickable noselect">
 						@foreach ($dates as $date)
 							<span class="{{ $date['active'] ? 'active' : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
+							@if ($date['active'])
+								<input type="hidden" name="date" value="{{ $date['value'] }}">
+							@endif
 						@endforeach
 					</span>
-					<span class="time ui-clickable noselect">14:00</span>
+					<span class="time ui-clickable noselect">{{ $time }}</span>
+					<input type="hidden" name="time" value="{{ $time }}">
 				</div>
 			</div>
 		</form>

@@ -11,7 +11,7 @@
 	<meta name="author" content="Levan Velijanashvili">
 
 	<meta property="og:title" content="გამოცდის ადგილები (თსუ)">
-	<meta property="og:image" content="link_to_image">
+	<meta property="og:image" content="{{ url('assets/og-image.png') }}">
 	<meta property="og:description" content="description goes here">
 
 	<link rel="stylesheet" href="{{ url('lib/bootstrap/dist/css/bootstrap.min.css') }}">

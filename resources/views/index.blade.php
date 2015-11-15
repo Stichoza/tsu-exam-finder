@@ -50,7 +50,7 @@
 						@foreach ($dates as $date)
 							<span class="{{ $date['active'] ? 'active' : 'hidden' }}" data-value="{{ $date['value'] }}">{{ $date['title'] }}</span>
 							@if ($date['active'])
-								<input type="hidden" name="date" value="{{ $date['value'] }}">
+								<input type="hidden" name="date" class="input-dynamic-date" value="{{ $date['value'] }}">
 							@endif
 						@endforeach
 					</span>

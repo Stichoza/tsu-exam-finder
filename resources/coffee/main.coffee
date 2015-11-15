@@ -10,7 +10,7 @@ jQuery (_) ->
     # Space key handling
     _ '#input-name'
         .keypress (event) ->
-            if (event.keyCode == 32)
+            if event.keyCode is 32
                 _ '#input-last'
                     .focus()
                 event.preventDefault()
@@ -111,7 +111,9 @@ jQuery (_) ->
             event.preventDefault()
             form = _ event.target
             swal
-                title: '...'
+                title: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
+                text: 'ვეძებ :3'
+                html: yes
                 showConfirmButton: no
             _.post form.attr('action'), form.serialize(), (response) ->
                 switch response.status

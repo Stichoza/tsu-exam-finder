@@ -55,7 +55,7 @@
 						@endforeach
 					</span>
 					<span class="time ui-clickable noselect">{{ $time }}</span>
-					<input type="hidden" name="time" value="{{ $time }}">
+					<input type="hidden" name="time" class="input-dynamic-time" value="{{ $time }}">
 				</div>
 			</div>
 		</form>
@@ -75,16 +75,17 @@
 		</div>
 	</div>
 	<div class="timer-source hidden">
-		<a href="#">+</a>
-		<a href="#">+</a>
-			<input type="text" pattern="[0-9]{1,2}:[0-9]{2}" maxlength="5">
-		<a href="#">-</a>
-		<a href="#">-</a>
+		<a href="#" class="btn-spinner btn-spiner-add">+</a>
+		<a href="#" class="btn-spinner btn-spiner-add">+</a>
+		<input type="tel" class="input-dynamic-time input-sweetalert-time" value="{{ $time }}">
+		<a href="#" class="btn-spinner btn-spiner-sub">-</a>
+		<a href="#" class="btn-spinner btn-spiner-sub">-</a>
 	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url('lib/sweetalert/dist/sweetalert.min.js') }}"></script>
 	<script src="{{ url('lib/floatlabel.js/floatlabels.min.js') }}"></script>
+	<script src="{{ url('lib/jquery.inputmask/dist/jquery.inputmask.bundle.js') }}"></script>
 	<script src="{{ url('lib/geokbd/geokbd.js') }}"></script>
 	<script src="{{ url('js/dist/main.min.js') }}"></script>
 </body>

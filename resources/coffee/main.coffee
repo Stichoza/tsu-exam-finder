@@ -57,6 +57,33 @@ jQuery (_) ->
             _ '.time.ui-clickable'
                 .text newTime
 
+    _ document
+        .on 'click', '.sweet-alert .btn-spinner', (event) ->
+            input   = _('.sweet-alert .input-sweetalert-time')
+            current = input.val()
+            hours   = parseInt current.substr 0, 2
+            minutes = parseInt current.substr 3, 2
+            # TODO
+            switch _(event.target).data 'spinner-fn'
+                when 'h+'
+                    hours = if hours < 20 then ++hours else 8
+                    console.log hours
+                when 'h-'
+                    hours = if hours > 8  then --hours else 20
+                    console.log hours
+                when 'm+'
+                    minutes = if minutes < 45 then minutes + 15 else 0
+                    console.log minutes
+                when 'm-'
+                    minutes = if minutes >= 15 then minutes - 15 else 45
+                    console.log minutes
+
+            hours = '0' + hours if hours < 10
+            minutes = '0' + minutes if minutes < 10
+
+            input.val "#{hours}:#{minutes}"
+            
+
     # GeoKBD
     GeoKBD.mapFields document.querySelectorAll('#input-name, #input-last'), 'KA'
 

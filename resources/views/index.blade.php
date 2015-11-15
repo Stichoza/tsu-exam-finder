@@ -75,11 +75,11 @@
 		</div>
 	</div>
 	<div class="timer-source hidden">
-		<a href="#" class="btn-spinner btn-spiner-add">+</a>
-		<a href="#" class="btn-spinner btn-spiner-add">+</a>
+		<a href="#" class="btn-spinner" data-spinner-fn="h+">+</a>
+		<a href="#" class="btn-spinner" data-spinner-fn="m+">+</a>
 		<input type="tel" class="input-dynamic-time input-sweetalert-time" value="{{ $time }}">
-		<a href="#" class="btn-spinner btn-spiner-sub">-</a>
-		<a href="#" class="btn-spinner btn-spiner-sub">-</a>
+		<a href="#" class="btn-spinner" data-spinner-fn="h-">-</a>
+		<a href="#" class="btn-spinner" data-spinner-fn="m-">-</a>
 	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>

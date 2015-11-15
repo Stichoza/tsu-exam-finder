@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 	
 	<title>TSU Exam Finder - გამოცდის ადგილები</title>
 	<meta name="description" content="წინასწარ გაიგე რომელ სექტორში რა ადგილას წერ გამოცდას.">
@@ -75,11 +75,11 @@
 		</div>
 	</div>
 	<div class="timer-source hidden">
-		<a href="#" class="btn-spinner" data-spinner-fn="h+">+</a>
-		<a href="#" class="btn-spinner" data-spinner-fn="m+">+</a>
+		<a href="#" class="btn btn-primary btn-spinner" data-spinner-fn="h+">+</a>
+		<a href="#" class="btn btn-primary btn-spinner" data-spinner-fn="m+">+</a>
 		<input type="tel" class="input-dynamic-time input-sweetalert-time" value="{{ $time }}">
-		<a href="#" class="btn-spinner" data-spinner-fn="h-">-</a>
-		<a href="#" class="btn-spinner" data-spinner-fn="m-">-</a>
+		<a href="#" class="btn btn-primary btn-spinner" data-spinner-fn="h-">-</a>
+		<a href="#" class="btn btn-primary btn-spinner" data-spinner-fn="m-">-</a>
 	</div>
 	<script src="{{ url('lib/jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url('lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>

@@ -58,7 +58,8 @@ jQuery (_) ->
                 .text newTime
 
     _ document
-        .on 'click', '.sweet-alert .btn-spinner', (event) ->
+        .on 'touchend', '.sweet-alert .btn-spinner', (event) ->
+            event.preventDefault()
             input   = _('.sweet-alert .input-sweetalert-time')
             current = input.val()
             hours   = parseInt current.substr 0, 2
@@ -82,6 +83,7 @@ jQuery (_) ->
             minutes = '0' + minutes if minutes < 10
 
             input.val "#{hours}:#{minutes}"
+                .trigger 'change'
             
 
     # GeoKBD

@@ -54,6 +54,9 @@ jQuery (_) ->
                 .not '.sweet-alert .input-sweetalert-time'
                 .val newTime
 
+            _ '.timer-source .input-dynamic-time'
+                .attr 'value', newTime
+
             _ '.time.ui-clickable'
                 .text newTime
 

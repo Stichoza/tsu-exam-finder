@@ -27,7 +27,7 @@
 		<img class="svg-stuff" src="{{ url('assets/main_vector.svg') }}" width="480" alt="">
 	</div>
 	<div class="page-content container">
-		<form action="details">
+		<form id="main-form" action="details" method="post">
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">
 					<h1 class="text-center header-title">გამოცდის ადგილები (თსუ)</h1>

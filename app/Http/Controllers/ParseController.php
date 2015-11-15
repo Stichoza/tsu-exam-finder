@@ -21,6 +21,7 @@ class ParseController extends Controller
     /**
      * Get results of received query
      * @param  Request $request
+     * @param Cache $cache
      * @return array Result of query
      */
     public function details(Request $request, Cache $cache)
@@ -66,7 +67,6 @@ class ParseController extends Controller
             return $carry;
         }, []);
 
-        dd($results);
     }
 
     /**

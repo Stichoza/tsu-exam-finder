@@ -7,7 +7,7 @@
 	
 	<title>TSU Exam Finder - გამოცდის ადგილები</title>
 	<meta name="description" content="წინასწარ გაიგე რომელ სექტორში რა ადგილას წერ გამოცდას.">
-	<meta name="keywords" content="tsu,exams,თსუ,გამოცდები,განრიგი,ცხრილი,სექტორი,ადგილი,შუალედური,კოლოქვიუმი">
+	<meta name="keywords" content="tsu,exams,gamocdebi,finder,თსუ,გამოცდები,განრიგი,ცხრილი,სექტორი,ადგილი,შუალედური,კოლოქვიუმი">
 	<meta name="author" content="Levan Velijanashvili">
 
 	<meta property="og:title" content="გამოცდის ადგილები (თსუ)">

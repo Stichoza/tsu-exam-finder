@@ -34,7 +34,7 @@ class ParseController extends Controller
         $cacheKey  = preg_replace('/\D/', '', $filename); // Generate key for cache entry
 
         try {
-            $data = $cache->remember($cacheKey, 0.00001, function () use ($filename) {
+            $data = $cache->remember($cacheKey, 720, function () use ($filename) {
 
                 $data = $matches = []; // Initial empty data array
                 $parser = new PdfParser(); // Parser object

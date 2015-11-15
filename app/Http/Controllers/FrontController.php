@@ -16,7 +16,7 @@ class FrontController extends Controller
     {
         $dates = [];
         $time = '09:00';
-        $carbon = new Carbon('yesterday'); // Because we add a day
+        $carbon = (new Carbon('now'))->addDay(-1); // Because we add a day
 
         for ($i = 0; $i < 2; $i++) {
             $dates[] = [

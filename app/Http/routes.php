@@ -3,7 +3,7 @@
 /*
  * Back-end routes
  */
-$app->get('details', 'ParseController@details');
+$app->post('details', 'ParseController@details');
 
 /*
  * Front-end routes

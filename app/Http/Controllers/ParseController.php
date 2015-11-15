@@ -33,40 +33,55 @@ class ParseController extends Controller
         $filename  = $this->buildUrlByDateAndTime($date, $time); // Get filename (url)
         $cacheKey  = preg_replace('/\D/', '', $filename); // Generate key for cache entry
 
-        $data = $cache->remember($cacheKey, 0.00001, function() use ($filename) {
+        try {
+            $data = $cache->remember($cacheKey, 0.00001, function () use ($filename) {
 
-            $data = $matches = []; // Initial empty data array
-            $parser = new PdfParser(); // Parser object
+                $data = $matches = []; // Initial empty data array
+                $parser = new PdfParser(); // Parser object
 
-            try {
-                $text = $parser->parseFile($filename)->getText(); // Get text
-            } catch (Exception $e) {
-                abort(500, 'PDF Parser failed'); // Huston. nothing. I'm fine.
-                exit;
-            }
-            
-            preg_match_all('/^([ა-ჰ]+)@+([ა-ჰ]+)@+([\d]{1,2})@+([\d]{1,2})@+(.+)$/im', $text, $matches);
+                try {
+                    $text = $parser->parseFile($filename)->getText(); // Get text
+                } catch (Exception $up) {
+                    throw new Exception('Parser failed');
+                    // abort(500, 'PDF Parser failed'); // Huston. never mind. I'm fine.
+                }
 
-            for ($i = 0; $i < count($matches[0]); $i++) {
-                $data[] = [
-                    'last_name'  => str_replace('@', '', $matches[1][$i]),
-                    'first_name' => str_replace('@', '', $matches[2][$i]),
-                    'sector'     => (int) $matches[3][$i],
-                    'seat'       => (int) $matches[4][$i],
-                    'subject'    => str_replace('@', '', $matches[5][$i]),
-                ];
-            }
+                preg_match_all('/^([ა-ჰ]+)@+([ა-ჰ]+)@+([\d]{1,2})@+([\d]{1,2})@+(.+)$/im', $text, $matches);
 
-            return $data;
-        });
+                for ($i = 0; $i < count($matches[0]); $i++) {
+                    $data[] = [
+                        'last_name' => str_replace('@', '', $matches[1][$i]),
+                        'first_name' => str_replace('@', '', $matches[2][$i]),
+                        'sector' => (int)$matches[3][$i],
+                        'seat' => (int)$matches[4][$i],
+                        'subject' => str_replace('@', '', $matches[5][$i]),
+                    ];
+                }
 
-        $results = array_reduce($data, function($carry, $item) use ($firstName, $lastName) {
-            if ($item['last_name'] == $lastName && $item['first_name'] == $firstName) {
-                $carry[] = $item;
-            }
-            return $carry;
-        }, []);
+                return $data;
+            });
 
+            $results = array_reduce($data, function($carry, $item) use ($firstName, $lastName) {
+                if ($item['last_name'] == $lastName && $item['first_name'] == $firstName) {
+                    $carry[] = $item;
+                }
+                return $carry;
+            }, []);
+
+            $response = [
+                'status'  => !count($results) ? 'not_found' : (count($results) > 1 ? 'found_many' : 'found_one'),
+                'results' => $results,
+            ];
+
+        } catch (Exception $e) {
+            $response = [
+                'status'  => 'error',
+                'results' => [],
+            ];
+        }
+
+
+        return $response;
     }
 
     /**

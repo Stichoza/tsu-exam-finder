@@ -37,9 +37,6 @@ jQuery (_) ->
                 else if timeInput.setSelectionRange
                     timeInput.setSelectionRange 0, 1
 
-                console.log timeInput.createTextRange
-                console.log timeInput.setSelectionRange
-
                 timeInput.focus()
 
             , 300 # End timeout

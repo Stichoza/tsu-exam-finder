@@ -1,6 +1,7 @@
 .env
 .idea
 /node_modules
+/public/assets/dist
 /public/css/dist
 /public/js/dist
 /public/lib

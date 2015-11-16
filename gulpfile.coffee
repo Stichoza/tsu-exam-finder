@@ -7,6 +7,7 @@ minifycss    = require 'gulp-minify-css'
 notify       = require 'gulp-notify'
 plumber      = require 'gulp-plumber'
 rename       = require 'gulp-rename'
+resize       = require 'gulp-image-resize'
 sourcemaps   = require 'gulp-sourcemaps'
 stylus       = require 'gulp-stylus'
 uglify       = require 'gulp-uglify'
@@ -43,6 +44,18 @@ gulp.task 'coffee', ->
             suffix: '.min'
         .pipe sourcemaps.write()
         .pipe gulp.dest 'public/js/dist'
+
+# Images
+gulp.task 'images', ->
+    for k, v of [76, 120, 152]
+        gulp.src 'public/assets/logo.png'
+            .pipe resize
+                width: v
+                height: v
+                crop: yes
+                upscale: no
+            .pipe rename "logo-#{v}.png"
+            .pipe gulp.dest 'public/assets/dist/ios'
 
 # Watch task
 gulp.task 'watch', ->

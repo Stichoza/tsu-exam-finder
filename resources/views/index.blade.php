@@ -17,10 +17,13 @@
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+
+	<link rel="icon" href="{{ url('assets/logo.png') }}">
+	<link rel="shortcut icon" href="{{ url('assets/logo.png') }}">
+	<link rel="apple-touch-icon" href="{{ url('assets/logo.png') }}">
+	<link rel="apple-touch-icon" sizes="76x76" href="{{ url('assets/dist/ios/logo-76.png') }}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{{ url('assets/dist/ios/logo-120.png') }}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{{ url('assets/dist/ios/logo-152.png') }}">
 
 	<link rel="stylesheet" href="{{ url('lib/bootstrap/dist/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ url('lib/alk-life/css/alk-life.min.css') }}">

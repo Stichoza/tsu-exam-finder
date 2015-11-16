@@ -1,2 +1,18 @@
-# tsu-exam-finder
-Find exact place where you should sit on your exam.
+# TSU Exam Finder
+წინასწარ გაიგე რომელ სექტორში რა ადგილას წერ გამოცდას.
+
+### კონტრიბუცია
+ყველა სახის კონტრიბუცია მიიღება სიხარულით. გახსენით შესაბამისი Issue-ები და Pull Request-ები. განხილვის შემდეგ ცვლილებები გაიმერჯება რეპოზიტორიაში.
+
+დაიცავით კოდის სტილი და სილამაზე. ქომითის მესიჯები ინგლისურად.
+
+### საჭირო ხელსაწყოები
+
+ - Laravel Homestead
+ - Composer
+ - Node / NPM
+ - Bower
+ - Gulp
+ - etc.
+
+ზოგიერთ gulp თასქს სჭირდება `graphicsmagick` და `imagemagick` ფექიჯები.

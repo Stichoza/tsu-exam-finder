@@ -58,7 +58,7 @@ jQuery (_) ->
                 .text newTime
 
     _ document
-        .on 'touchend', '.sweet-alert .btn-spinner', (event) ->
+        .on 'click touchend', '.sweet-alert .btn-spinner', (event) ->
             event.preventDefault()
             input   = _('.sweet-alert .input-sweetalert-time')
             current = input.val()

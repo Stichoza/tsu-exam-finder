@@ -1,25 +1,41 @@
-.spinner
-    width 150px
-    height 150px
-    position relative
-    margin 0 auto
+@keyframes timer-loader
+    0%
+        transform rotate(0deg)
+    100%
+        transform rotate(360deg)
 
-.double-bounce1, .double-bounce2
-    width 100%
-    height 100%
-    border-radius 50%
-    background-color red
-    opacity 0.6
-    position absolute
-    top 0
-    left 0  
-    animation sk-bounce 2.0s infinite ease-in-out
-
-.double-bounce2
-    animation-delay -1.0s
-
-@keyframes sk-bounce
-    0%, 100%
-        transform scale(0.0)
-    50%
-        transform scale(1.0)
+.timer-loader
+    &:not(:required)
+        border 4px solid #c8d
+        border-radius 45px
+        box-sizing border-box
+        display inline-block
+        overflow hidden
+        position relative
+        text-indent -9999px
+        width 90px
+        height 90px
+    &:not(:required)::before
+        animation timer-loader 1250ms infinite linear
+        transform-origin 2px 2px
+        background #c8d
+        border-radius 2px
+        content ''
+        display block
+        position absolute
+        width 4px
+        height 32px
+        left 39px
+        top 39px
+    &:not(:required)::after
+        animation timer-loader 15000ms infinite linear
+        transform-origin 2px 2px
+        background #c8d
+        border-radius 2px
+        content ''
+        display block
+        position absolute
+        width 4px
+        height 22px
+        left 39px
+        top 39px

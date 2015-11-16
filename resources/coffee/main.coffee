@@ -113,8 +113,8 @@ jQuery (_) ->
             event.preventDefault()
             form = _ event.target
             swal
-                title: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
-                text: 'ვეძებ :3'
+                title: 'ვეძებ :3'
+                text: '<div class="timer-loader">'
                 html: yes
                 showConfirmButton: no
             _.post form.attr('action'), form.serialize(), (response) ->

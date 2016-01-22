@@ -42,6 +42,7 @@
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">
 					<h1 class="text-center header-title">გამოცდის ადგილები (თსუ)</h1>
+					<div class="alert alert-warning text-center">საიტს შეიძლება ჰქონდეს დროებითი პრობლემები. არ დაგვივიწყოთ, მალე გამოვსწორდებით :)</div>
 				</div>
 			</div>
 			<div class="row sweet-inputs">
